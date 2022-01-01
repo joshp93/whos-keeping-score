@@ -5,6 +5,13 @@ import { Component } from '@angular/core';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
+
 export class AppComponent {
-  title = 'whos-keeping-score';
+  
+  showScoreboard: boolean = false;
+
+  startOrEndGame(showScoreboard: boolean) {
+    this.showScoreboard = showScoreboard;
+  }
+
 }

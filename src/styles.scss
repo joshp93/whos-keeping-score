@@ -1,1 +1,18 @@
-/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Major+Mono+Display&display=swap');
+
+html,
+body {
+    margin: 0px;
+    border: 0px;
+    padding: 0px;
+}
+
+body {
+    height: 100%;
+    color: white;
+    background-color: black;
+}
+
+* {
+    font-family: 'Major Mono Display', monospace;
+}
