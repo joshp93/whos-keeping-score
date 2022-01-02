@@ -15,5 +15,10 @@ nav {
         border: 2px solid black;
         background: none;
         height: 5vh;
+        margin: 1em;
+    }
+    button:hover,
+    button:focus {
+        border: 2px solid white;
     }
 }

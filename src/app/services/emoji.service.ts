@@ -4,31 +4,42 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class EmojiService {
-  private unicodeEmojis: Array<string> = [
-    "U+1F973",
-    "U+1F974",
-    "U+1F635",
-    "U+1F913",
-    "U+1F608",
-    "U+1F4A9",
-    "U+1F479",
-    "U+1F47B",
-    "U+1F47D",
-    "U+1F47E",
-    "U+1F916",
-    "U+1F63C",
-    "U+1F9B9",
-    "U+1F9D9",
-    "U+1F9DA",
-    "U+1F9DB",
-    "U+1F9DD",
-    "U+1F9DF",
-    "U+1F939",
-    "U+1F984"
-  ];
-  constructor() { }
+  private emojis: Array<string> = new Array();
+  private usedEmojis: Array<string> = new Array();
 
-  getRandomEmojiUnicode() {
-    return this.unicodeEmojis[Math.floor(Math.random()*this.unicodeEmojis.length - 1)];
+  constructor() {
+    this.instantiateEmojis();
+  }
+
+  getRandomEmoji() {
+    const emoji = this.emojis.filter(emoji => !this.usedEmojis.includes(emoji))[Math.floor(Math.random() * this.emojis.length - 1)];
+    this.usedEmojis.push(emoji);
+    return emoji;
+  }
+
+  clearEmojis() {
+    this.instantiateEmojis();
+    this.usedEmojis = new Array();
+  }
+
+  instantiateEmojis() {
+    this.emojis = [
+      "😎",
+      "🧛",
+      "🧙‍♂️",
+      "😼",
+      "👻",
+      "👽",
+      "👾",
+      "👹",
+      "🤖",
+      "🤓",
+      "💩",
+      "🤡",
+      "😈",
+      "🦹",
+      "🥸",
+      "🤑"
+    ];
   }
 }

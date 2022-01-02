@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { EmojiService } from 'src/app/services/emoji.service';
 
 @Component({
   selector: 'app-scoreboard',
@@ -6,10 +7,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./scoreboard.component.scss']
 })
 export class ScoreboardComponent implements OnInit {
-
-  constructor() { }
+  rand = "";
+  constructor(private emojiService: EmojiService) { }
 
   ngOnInit(): void {
+  }
+
+  random() {
+    this.rand = this.emojiService.getRandomEmoji();
   }
 
 }
