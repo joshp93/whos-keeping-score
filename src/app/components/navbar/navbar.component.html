@@ -1,4 +1,10 @@
 <nav>
-    <button type="button" (click)="newGame()">New Game</button>
-    <button type="button" (click)="endGame()">End Game</button>
+    <span></span>
+    <button *ngIf="!gameRunning;else gameTemplate" type="button" (click)="newGame()">New Game</button>
+    <ng-template #gameTemplate>
+        <button type="button" (click)="endGame()">End Game</button>
+        <button type="button" (click)="addPlayer()">Add New Player</button>
+        <button type="button" (click)="newRound()">New Round</button>
+    </ng-template>
+    <span></span>
 </nav>

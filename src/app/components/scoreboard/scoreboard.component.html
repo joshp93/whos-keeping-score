@@ -1,2 +1,14 @@
-<p (click)="random()">scoreboard works!</p>
-<p>{{ rand }}</p>
+<div class="scoreboard">
+    <form class="scoreboard" *ngFor="let playerInfo of scoreboard">
+        <p class="emoji">{{ playerInfo.emoji }}</p>
+        <p>{{ playerInfo.name }}</p>
+        <form class="playerScores" [formGroup]="playerInfo.playerScores">
+            <ng-container *ngFor="let control of playerInfo.playerScores.controls">
+                <form [formGroup]="control">
+                    <input type="number" formControlName="score"/>
+                </form>
+            </ng-container>
+        </form>
+        {{ totalScore(playerInfo) }}
+    </form>
+</div>

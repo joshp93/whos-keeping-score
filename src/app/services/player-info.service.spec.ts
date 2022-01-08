@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { EmojiService } from './emoji.service';
+import { PlayerInfoService } from './player-info.service';
 
-describe('EmojiService', () => {
-  let service: EmojiService;
+describe('PlayerInfoService', () => {
+  let service: PlayerInfoService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(EmojiService);
+    service = TestBed.inject(PlayerInfoService);
   });
 
   it('should be created', () => {

@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { EmojiService } from 'src/app/services/emoji.service';
+import { Component, Input, OnInit } from '@angular/core';
+import { PlayerInfo } from 'src/app/classes/player-info';
 
 @Component({
   selector: 'app-scoreboard',
@@ -7,14 +7,16 @@ import { EmojiService } from 'src/app/services/emoji.service';
   styleUrls: ['./scoreboard.component.scss']
 })
 export class ScoreboardComponent implements OnInit {
-  rand = "";
-  constructor(private emojiService: EmojiService) { }
+  @Input() scoreboard = new Array<PlayerInfo>();
+
+  constructor() { }
+
+  totalScore = (playerInfo: PlayerInfo) => {
+    return playerInfo.playerScores.value.reduce((prevValue, value) => {
+      return (parseInt(prevValue) | 0) + (parseInt(value.score) | 0);
+    }, 0);
+  }
 
   ngOnInit(): void {
   }
-
-  random() {
-    this.rand = this.emojiService.getRandomEmoji();
-  }
-
 }
