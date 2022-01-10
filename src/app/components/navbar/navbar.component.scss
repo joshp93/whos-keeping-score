@@ -3,19 +3,22 @@ nav {
     flex-direction: row;
     align-items: center;
     width: 70%;
-    height: 7%;
     position: fixed;
-    top: 86%;
+    top: 80%;
     left: 10%;
     padding: 1rem;
     background-color: orange;
     border-radius: 10px;
 
+    @media screen and (max-height: 700px) {
+        top: 70%;
+    }
+
     button {
         border: 2px solid black;
         background: none;
-        height: 5vh;
-        margin: 1em;
+        height: 3rem;
+        margin: 1rem;
     }
     button:hover,
     button:focus {

@@ -1,25 +1,44 @@
 .scoreboard {
     display: flex;
     flex-direction: row;
-    .scoreboard {
+    padding: 1rem;
+    .playerScoresForm {
         display: flex;
         flex-direction: column;
         margin: auto;
         color: white;
         align-items: center;
+        max-width: 4rem;
         .emoji {
-            font-size: x-large;
+            font-size: 3rem;
         }
         p {
-            font-size: small;
+            font-size: 1.2rem;
+            font-family: monospace;
+            padding: 0.5rem;
+            height: 4rem;
+            margin-bottom: 1rem;
         }
         input {
-            width: 4em;
+            width: 4rem;
             background-color: transparent;
             border: none;
             border-bottom: 1px solid white;
-            margin: 1em;
+            margin: 1rem;
             color: white;
         }
+        button {
+            border: none;
+            margin: 0;
+            background-color: transparent;
+            color: red;
+            cursor: pointer;
+            padding: none;
+            font-size: 2rem;
+            font-family: monospace;
+        }
     }
+}
+.mobileSpacer {
+    height: 40vh;
 }

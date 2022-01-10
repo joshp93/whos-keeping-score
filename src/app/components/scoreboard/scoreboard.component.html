@@ -1,9 +1,10 @@
 <div class="scoreboard">
-    <form class="scoreboard" *ngFor="let playerInfo of scoreboard">
+    <form class="playerScoresForm" *ngFor="let playerInfo of scoreboard; index as s">
+        <button type="button" (click)="removePlayer(s)">X</button>
         <p class="emoji">{{ playerInfo.emoji }}</p>
         <p>{{ playerInfo.name }}</p>
         <form class="playerScores" [formGroup]="playerInfo.playerScores">
-            <ng-container *ngFor="let control of playerInfo.playerScores.controls">
+            <ng-container *ngFor="let control of playerInfo.playerScores.controls; index as i">
                 <form [formGroup]="control">
                     <input type="number" formControlName="score"/>
                 </form>
@@ -12,3 +13,4 @@
         {{ totalScore(playerInfo) }}
     </form>
 </div>
+<p class="mobileSpacer"></p>

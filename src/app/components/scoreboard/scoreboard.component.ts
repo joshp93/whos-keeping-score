@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { PlayerInfo } from 'src/app/classes/player-info';
 
 @Component({
@@ -8,8 +8,12 @@ import { PlayerInfo } from 'src/app/classes/player-info';
 })
 export class ScoreboardComponent implements OnInit {
   @Input() scoreboard = new Array<PlayerInfo>();
+  @Output() removePlayerEvent = new EventEmitter<number>();
 
   constructor() { }
+
+  ngOnInit(): void {
+  }
 
   totalScore = (playerInfo: PlayerInfo) => {
     return playerInfo.playerScores.value.reduce((prevValue, value) => {
@@ -17,6 +21,7 @@ export class ScoreboardComponent implements OnInit {
     }, 0);
   }
 
-  ngOnInit(): void {
+  removePlayer(index: number) {
+    this.removePlayerEvent.emit(index);
   }
 }

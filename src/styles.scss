@@ -8,11 +8,17 @@ body {
 }
 
 body {
-    height: 100%;
+    height: 100vh;
     color: white;
     background-color: black;
 }
 
 * {
     font-family: 'Major Mono Display', monospace;
+}
+
+@media screen and (max-width: 420px) {
+    * {
+        font-size: 10px;
+    }
 }

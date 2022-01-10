@@ -13,22 +13,28 @@ export class AppComponent {
   showScoreboard: boolean = false;
   scoreboard = new Array<PlayerInfo>();
   private defaultPlayerCount = 2;
-  private numberOfRounds = 1;
+  private defaultRoundCount = 1;
+  private numberOfRounds = this.defaultRoundCount;
 
   constructor(private playerInfoService: PlayerInfoService) { }
 
-  startOrEndGame(showScoreboard: boolean) {
-    this.showScoreboard = showScoreboard;
-    if (showScoreboard) {
+  startOrEndGame(isNewGame: boolean) {
+    this.showScoreboard = isNewGame;
+    if (isNewGame) {
       this.loadScoreboard();
     } else {
       this.playerInfoService.clearPlayerInfo();
-      this.scoreboard = new Array();
+      this.scoreboard = new Array<PlayerInfo>();
+      this.numberOfRounds = this.defaultRoundCount;
     }
   }
 
   addPlayer() {
     this.addPlayerToScoreboard();
+  }
+
+  removePlayer(index: number) {
+    this.scoreboard.splice(index, 1);
   }
 
   newRound = () => {
