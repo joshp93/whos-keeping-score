@@ -1,4 +1,7 @@
 div {
+    h1 {
+        font-family: 'Major Mono Display';
+    }
     padding: 1rem;
     $size: calc(100% - 2rem);
     width: $size;
@@ -7,6 +10,7 @@ div {
     flex-direction: column;
     align-items: center;
     user-select: none;
+    font-family: 'Major Mono Display';
     img {
         width: 100%;
         max-width: 420px;

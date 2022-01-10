@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { AfterViewInit, Component, ViewChild } from '@angular/core';
 import { FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
 import { PlayerInfo } from './classes/player-info';
+import { NavbarComponent } from './components/navbar/navbar.component';
 import { PlayerInfoService } from './services/player-info.service';
 
 @Component({
@@ -9,14 +10,20 @@ import { PlayerInfoService } from './services/player-info.service';
   styleUrls: ['./app.component.scss']
 })
 
-export class AppComponent {
+export class AppComponent implements AfterViewInit {
   showScoreboard: boolean = false;
   scoreboard = new Array<PlayerInfo>();
   private defaultPlayerCount = 2;
   private defaultRoundCount = 1;
   private numberOfRounds = this.defaultRoundCount;
 
+  @ViewChild(NavbarComponent) navbar: NavbarComponent;
+
   constructor(private playerInfoService: PlayerInfoService) { }
+
+  ngAfterViewInit(): void {
+      
+  }
 
   startOrEndGame(isNewGame: boolean) {
     this.showScoreboard = isNewGame;
@@ -41,6 +48,8 @@ export class AppComponent {
     this.numberOfRounds++;
     this.scoreboard.forEach(playerInfo => playerInfo.playerScores.insert(playerInfo.playerScores.length, this.addNewPlayerScore()));
   }
+
+  focusToNewRound = () => this.navbar.focusToNewRound();
 
   private loadScoreboard() {
     for (let i = 0; i < this.defaultPlayerCount; i++) {

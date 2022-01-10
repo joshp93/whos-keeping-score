@@ -10,8 +10,12 @@ nav {
     background-color: orange;
     border-radius: 10px;
 
-    @media screen and (max-height: 700px) {
-        top: 70%;
+    @media screen and (max-height: 550px) {
+        top: 65%;
+    }
+
+    @media screen and (max-height: 350px) {
+        top: 55%;
     }
 
     button {

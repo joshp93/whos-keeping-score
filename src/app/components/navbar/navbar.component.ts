@@ -31,4 +31,6 @@ export class NavbarComponent implements OnInit {
   addPlayer = () => this.playerEvent.emit();
 
   newRound = () => this.newRoundEvent.emit();
+
+  focusToNewRound = () => document.getElementById('newRound').focus();
 }

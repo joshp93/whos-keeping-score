@@ -31,7 +31,11 @@ export class PlayerInfoService {
   }
 
   private getRandomElementFromArray(array: Array<string>, usedArray: Array<string>): string {
-    const filteredArray = array.filter(element => !usedArray.includes(element));
+    let filteredArray = array.filter(element => !usedArray.includes(element));
+    if (filteredArray.length === 0) {
+      usedArray = new Array<string>();
+      array.forEach(element => filteredArray.push(element));
+    }
     const index = Math.floor(Math.random() * filteredArray.length);
     const element = filteredArray[index];
     if (!element) {

@@ -1,12 +1,12 @@
 <div class="scoreboard">
     <form class="playerScoresForm" *ngFor="let playerInfo of scoreboard; index as s">
-        <button type="button" (click)="removePlayer(s)">X</button>
+        <button type="button" (click)="removePlayer(s)" [tabindex]="s + 10">X</button>
         <p class="emoji">{{ playerInfo.emoji }}</p>
         <p>{{ playerInfo.name }}</p>
         <form class="playerScores" [formGroup]="playerInfo.playerScores">
             <ng-container *ngFor="let control of playerInfo.playerScores.controls; index as i">
                 <form [formGroup]="control">
-                    <input type="number" formControlName="score"/>
+                    <input type="number" formControlName="score" [tabindex]="getTabIndex(s, i)" (keyup.enter)="moveNext(s, i)" [id]="'score' + getTabIndex(s, i)"/>
                 </form>
             </ng-container>
         </form>
