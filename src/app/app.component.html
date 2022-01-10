@@ -1,7 +1,8 @@
 <app-dice *ngIf="!showScoreboard"></app-dice>
 <app-scoreboard *ngIf="showScoreboard" [scoreboard]="scoreboard"
     (removePlayerEvent)="removePlayer($event)"
-    (focusToNewRoundEvent)="focusToNewRound()"></app-scoreboard>
+    (focusToNewRoundEvent)="focusToNewRound()"
+    (updateScoreboardEvent)="updateScoreboard()"></app-scoreboard>
 <app-navbar (gameEvent)="startOrEndGame($event)"
     (playerEvent)="addPlayer()"
     (newRoundEvent)="newRound()"></app-navbar>

@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { PlayerInfo } from 'src/app/classes/player-info';
+import { ScoresService } from 'src/app/services/scores.service';
 
 @Component({
   selector: 'app-scoreboard',
@@ -10,8 +11,9 @@ export class ScoreboardComponent implements OnInit {
   @Input() scoreboard = new Array<PlayerInfo>();
   @Output() removePlayerEvent = new EventEmitter<number>();
   @Output() focusToNewRoundEvent = new EventEmitter<void>();
+  @Output() updateScoreboardEvent = new EventEmitter<void>();
 
-  constructor() { }
+  constructor(private scoresService: ScoresService) { }
 
   ngOnInit(): void {
   }
@@ -37,4 +39,6 @@ export class ScoreboardComponent implements OnInit {
       this.focusToNewRoundEvent.emit();
     }
   }
+
+  saveScores = () => this.updateScoreboardEvent.emit();
 }

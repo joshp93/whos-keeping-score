@@ -1,5 +1,6 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { PlayerInfoService } from 'src/app/services/player-info.service';
+import { ScoresService } from 'src/app/services/scores.service';
 
 @Component({
   selector: 'app-navbar',
@@ -13,7 +14,11 @@ export class NavbarComponent implements OnInit {
   @Output() newRoundEvent: EventEmitter<void> = new EventEmitter();
   gameRunning: boolean = false;
 
-  constructor() { }
+  constructor(private scoresService: ScoresService) {
+    if (this.scoresService.hasActiveScoreboard()) {
+      this.gameRunning = true;
+    }
+  }
 
   ngOnInit(): void {
   }

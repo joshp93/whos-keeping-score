@@ -6,7 +6,11 @@
         <form class="playerScores" [formGroup]="playerInfo.playerScores">
             <ng-container *ngFor="let control of playerInfo.playerScores.controls; index as i">
                 <form [formGroup]="control">
-                    <input type="number" formControlName="score" [tabindex]="getTabIndex(s, i)" (keyup.enter)="moveNext(s, i)" [id]="'score' + getTabIndex(s, i)"/>
+                    <input type="number" formControlName="score"
+                        [tabindex]="getTabIndex(s, i)"
+                        [id]="'score' + getTabIndex(s, i)"
+                        (keyup.enter)="moveNext(s, i)"
+                        (blur)="saveScores()"/>
                 </form>
             </ng-container>
         </form>
