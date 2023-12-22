@@ -1,11 +1,11 @@
-import { UntypedFormArray } from "@angular/forms";
+import { FormArray } from "@angular/forms";
 
 export class PlayerInfo {
     name: string;
     emoji: string;
-    playerScores: UntypedFormArray;
+    playerScores: FormArray;
 
-    constructor(name: string, emoji: string, playerScores: UntypedFormArray) {
+    constructor(name: string, emoji: string, playerScores: FormArray) {
         this.name = name;
         this.emoji = emoji;
         this.playerScores = playerScores;

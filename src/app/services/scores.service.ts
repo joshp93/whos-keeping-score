@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { UntypedFormControl, UntypedFormArray, UntypedFormGroup } from '@angular/forms';
+import { FormControl, FormArray, FormGroup } from '@angular/forms';
 import { PlayerInfo } from '../classes/player-info';
 import { PlayerInfoSession } from '../classes/player-info-session';
 
@@ -16,9 +16,9 @@ export class ScoresService {
       return null;
     }
     return playerInfoSession.map(playerScores => new PlayerInfo(playerScores.name, playerScores.emoji,
-      new UntypedFormArray(playerScores.scores.map(score => {
-        return new UntypedFormGroup({
-          score: new UntypedFormControl(score.toString())
+      new FormArray(playerScores.scores.map(score => {
+        return new FormGroup({
+          score: new FormControl(score.toString())
         });
       }))));
   }
