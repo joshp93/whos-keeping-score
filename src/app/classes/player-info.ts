@@ -1,4 +1,4 @@
-import { FormArray } from "@angular/forms";
+import { FormArray, FormControl, FormGroup } from "@angular/forms";
 
 export class PlayerInfo {
     name: string;

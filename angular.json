@@ -72,10 +72,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "whos-keeping-score:build:production"
+              "buildTarget": "whos-keeping-score:build:production"
             },
             "development": {
-              "browserTarget": "whos-keeping-score:build:development"
+              "buildTarget": "whos-keeping-score:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -83,7 +83,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "whos-keeping-score:build"
+            "buildTarget": "whos-keeping-score:build"
           }
         },
         "test": {

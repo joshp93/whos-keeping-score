@@ -8,6 +8,6 @@ export class PlayerInfoSession {
     constructor(playerInfo: PlayerInfo) {
         this.name = playerInfo.name;
         this.emoji = playerInfo.emoji;
-        this.scores = playerInfo.playerScores.value.map(value => parseInt(value.score) || 0);
+        this.scores = playerInfo.playerScores.value.map(value => parseFloat(value.score) || 0);
     }
 }

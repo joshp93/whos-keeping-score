@@ -13,17 +13,21 @@ export class ScoreboardComponent implements OnInit {
   @Output() focusToNewRoundEvent = new EventEmitter<void>();
   @Output() updateScoreboardEvent = new EventEmitter<void>();
 
-  constructor(private scoresService: ScoresService) { }
+  constructor() { }
 
   ngOnInit(): void {
   }
 
   getTabIndex = (s: number, i: number): number => 100 + s + (i * 10);
 
-  totalScore = (playerInfo: PlayerInfo) => {
-    return playerInfo.playerScores.value.reduce((prevValue, value) => {
-      return (parseInt(prevValue) | 0) + (parseInt(value.score) | 0);
-    }, 0);
+  totalScore(playerInfo: PlayerInfo) {
+    let result = 0;
+    playerInfo.playerScores.value.forEach(value => result += parseFloat(value.score));
+    const roundedResult = result.toFixed(2);
+    if (parseInt(roundedResult.split(".")[1]) === 0) {
+      return Math.round(result);
+    }
+    return result.toFixed(2);
   }
 
   removePlayer(index: number) {
