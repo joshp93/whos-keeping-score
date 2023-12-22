@@ -1,5 +1,5 @@
 import { AfterViewInit, Component, ViewChild } from '@angular/core';
-import { FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormArray, UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 import { PlayerInfo } from './classes/player-info';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { PlayerInfoService } from './services/player-info.service';
@@ -77,7 +77,7 @@ export class AppComponent implements AfterViewInit {
   private addPlayerToScoreboard() {
     const emoji = this.playerInfoService.getRandomEmoji();
     const name = this.playerInfoService.getRandomPLayerName();
-    let playerInfo = new PlayerInfo(name, emoji, new FormArray([]));
+    let playerInfo = new PlayerInfo(name, emoji, new UntypedFormArray([]));
     for (let i = 0; i < this.numberOfRounds; i++) {
       playerInfo.playerScores.insert(playerInfo.playerScores.length, this.addNewPlayerScore());
     }
@@ -85,8 +85,8 @@ export class AppComponent implements AfterViewInit {
   }
 
   private addNewPlayerScore() {
-    return new FormGroup({
-      score: new FormControl("")
+    return new UntypedFormGroup({
+      score: new UntypedFormControl("")
     });
   }
 }
