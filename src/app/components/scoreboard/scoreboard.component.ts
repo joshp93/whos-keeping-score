@@ -22,7 +22,7 @@ export class ScoreboardComponent implements OnInit {
 
   totalScore(playerInfo: PlayerInfo) {
     let result = 0;
-    playerInfo.playerScores.value.forEach(value => result += parseFloat(value.score));
+    playerInfo.playerScores.value.forEach(value => result += parseFloat(value.score || 0));
     const roundedResult = result.toFixed(2);
     if (parseInt(roundedResult.split(".")[1]) === 0) {
       return Math.round(result);
